@@ -12,6 +12,7 @@ import { ContextProvider } from "../store/ContextApi";
 import { Toaster } from "react-hot-toast";
 import CreateNote from "./Pages/notes/CreateNote";
 import MyNotes from "./Pages/notes/MyNotes";
+import EditNotes from "./Pages/notes/EditNotes";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
               <Route path="/signup" element={<Signup />} />
               <Route path="/create-note" element={<CreateNote />} />
               <Route path="/notes" element={<MyNotes />} />
+              <Route path={`/notes/`} element={<EditNotes />} />
               {/* <Route path="/features" element={<Features />} /> */}
             </Routes>
             <Footer />
