@@ -18,6 +18,9 @@ import toast from "react-hot-toast";
 import { useEffect, useState } from "react";
 import { useMyContext } from "../../store/ContextApi.jsx";
 import { jwtDecode } from "jwt-decode";
+import { Github } from "lucide-react";
+
+const apiUrl = import.meta.env.VITE_APP_API_URL;
 
 function Login() {
   const { theme } = useTheme();
@@ -80,11 +83,20 @@ function Login() {
             <CardHeader className="text-2xl pl-0 pb-0">
               Login to Notees
             </CardHeader>
-            <CardDescription className="pb-8">
+            <CardDescription className="pb-4">
               Enter your email and password to access your notes.
             </CardDescription>
           </CardHeader>
-          <CardContent className="flex flex-col gap-8">
+          <CardContent className="flex flex-col gap-4">
+            <Link
+              to={`${apiUrl}/oauth2/authorization/github`}
+              className="w-[100%] justify-center flex gap-2"
+            >
+              <Button type="button" className=" self-center flex gap-2">
+                <Github />
+                Login with Github
+              </Button>
+            </Link>
             <div>
               <Label htmlFor="username">Username</Label>
               <Input
@@ -105,7 +117,7 @@ function Login() {
                 {...register("password", {
                   required: "Password is required",
                   minLength: {
-                    value: 6,
+                    value: 4,
                     message: "Password must be at least 6 characters",
                   },
                 })}

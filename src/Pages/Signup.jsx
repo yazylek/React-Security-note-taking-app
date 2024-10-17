@@ -17,6 +17,9 @@ import { useForm } from "react-hook-form";
 import api from "../../services/api";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import { Github } from "lucide-react";
+
+const apiUrl = import.meta.env.VITE_APP_API_URL;
 
 function Signup() {
   const { theme } = useTheme();
@@ -68,11 +71,22 @@ function Signup() {
             <CardHeader className="text-2xl pl-0 pb-0">
               Create your account
             </CardHeader>
-            <CardDescription className="pb-8">
+            <CardDescription className="pb-4">
               Enter your credentials to create new account
             </CardDescription>
           </CardHeader>
-          <CardContent className="flex flex-col gap-8">
+          <CardContent className="flex flex-col gap-4">
+            <div>
+              <Link
+                to={`${apiUrl}/oauth2/authorization/github`}
+                className="w-[100%] justify-center flex gap-2"
+              >
+                <Button type="button" className=" self-center flex gap-2">
+                  <Github />
+                  Register with Github
+                </Button>
+              </Link>
+            </div>
             <div>
               <Label htmlFor="username">Username</Label>
               <Input

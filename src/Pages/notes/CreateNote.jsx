@@ -48,7 +48,7 @@ export default function CreateNote() {
         onChange={setValue}
       />
       <Button
-        {...(loading ? "disabled" : "Loading...")}
+        disabled={loading}
         onClick={handleSave}
         variant="outline"
         size="lg"
@@ -56,7 +56,6 @@ export default function CreateNote() {
       >
         {loading ? (
           <span className="flex justify-center items-center">
-            {" "}
             <ReloadIcon className="mr-2 h-4 w-4 animate-spin" />
             Please Wait
           </span>

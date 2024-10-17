@@ -13,6 +13,7 @@ import { Toaster } from "react-hot-toast";
 import CreateNote from "./Pages/notes/CreateNote";
 import MyNotes from "./Pages/notes/MyNotes";
 import EditNotes from "./Pages/notes/EditNotes";
+import OAuth2Redirect from "./Pages/OAuth2Redirect";
 
 function App() {
   return (
@@ -31,8 +32,11 @@ function App() {
               <Route path="/signup" element={<Signup />} />
               <Route path="/create-note" element={<CreateNote />} />
               <Route path="/notes" element={<MyNotes />} />
-              <Route path={`/notes/`} element={<EditNotes />} />
-              {/* <Route path="/features" element={<Features />} /> */}
+              <Route path={`/notes/:id`} element={<EditNotes />} />
+              <Route
+                path="/oauth2/authorization/github"
+                element={<OAuth2Redirect />}
+              />
             </Routes>
             <Footer />
           </Router>
