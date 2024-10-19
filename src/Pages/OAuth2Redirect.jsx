@@ -14,6 +14,7 @@ const OAuth2Redirect = () => {
     console.log(params);
 
     if (token) {
+      console.log(token);
       try {
         const decodedToken = jwtDecode(token);
         console.log(decodedToken);
